@@ -1,20 +1,19 @@
 // list item storage structure
 // array of task objects
 
-<<<<<<< HEAD
+
 class task {//done by Vyvian
-=======
-class task {
->>>>>>> 32da99e3646d172651bf4f71cc054cfc18942d44
-    constructor(name, dueDate, importance, isComplete) {
+
+
+    constructor(name, dueDate, priority, isComplete) {
         this.name = name;   //task name, string
         this.dueDate = dueDate; //string 'yyyy-mm-dd'
-        this.importance = importance; //integer 1-3, 1 is highest importance
+        this.priority = priority; //integer 1-3, 1 is highest importance
         this.isComplete = isComplete; //boolean
     }
 }
 
-<<<<<<< HEAD
+
 //task list storage = array of tasks
 let myArray = [];
 

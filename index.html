@@ -8,15 +8,37 @@
     <title>Fancy To-Do List ;)</title>
 </head>
 <body>
-    <h1 id="task-list">Task List</h1>
-    <table id="table">
+    <h2 id="add-task-header">Add a Task...</h2>
+<div id="form-div">
+    <form id="list-item-form">
+        <label for="task-name">Task Name: </label>
+        <input id="task-name" type="text" name="task-name" placeholder="Enter a task..."/> <br> <br>
+        <label for="due-date">Due Date: </label>
+        <input id="due-date" type="text" name="due-date" placeholder="yyyy-mm-dd"/> <br><br>
+    <label for = "priority-dropdown">Priority Level</label>
+      <select id ="priority" name = "priority">
+            <option value="3">Low</option>
+             <option value="2">Medium</option>
+             <option value="1">High</option>
+       </select> 
+       <br><br>
+        <input id="submit-button" type="button" value="Submit">
+    </form>
+    
+</div>
+
+<h2 id="to-do-list-header">To-Do List</h2>
+<div id="task-table-div">
+    <table id="task-table">
         <tr id="row1">
             <th>Task</th>
-            <th>Importance</th>
             <th>Due Date</th>
-            <th>Completion</th>
+            <th>Priority</th>
         </tr>
     </table>
+</div>
+
+
     <script src="script.js" charset="utf-8"></script>
 </body>
 </html>
