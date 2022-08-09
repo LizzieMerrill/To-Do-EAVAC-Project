@@ -1,7 +1,11 @@
 // list item storage structure
 // array of task objects
 
+<<<<<<< HEAD
 class task {//done by Vyvian
+=======
+class task {
+>>>>>>> 32da99e3646d172651bf4f71cc054cfc18942d44
     constructor(name, dueDate, importance, isComplete) {
         this.name = name;   //task name, string
         this.dueDate = dueDate; //string 'yyyy-mm-dd'
@@ -10,6 +14,7 @@ class task {//done by Vyvian
     }
 }
 
+<<<<<<< HEAD
 //task list storage = array of tasks
 let myArray = [];
 
@@ -35,3 +40,6 @@ newLI.ad
 mainList.addEventListener('click', function removeItem(){
         document.querySelector('.thingToDo').remove();
     });
+=======
+//task list storage = array of tasks
+>>>>>>> 32da99e3646d172651bf4f71cc054cfc18942d44
