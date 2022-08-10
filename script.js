@@ -17,25 +17,25 @@ function newObj(name_, dueDate_, importance_) {
 }
 
 
-function tableRefresh() {
-    document.querySelectorAll('td').remove();
-    document.querySelectorAll('tr.data-row').remove();
+function tableRefresh() {       
+        //document.querySelector('tbody').empty();
+
     for (let i = 0; i < myArray.length; i++) {
         let newRow = document.createElement('tr');
-        newRow.class = 'data-row';
-        document.querySelector('#task-table').appendChild(newRow);
+        newRow.id = ('data-row' + i);
+        document.querySelector('tbody').appendChild(newRow);
 
         let newName = document.createElement('td');
         newName.innerHTML = myArray[i].name;
-        document.querySelector(newRow).appendChild(newName);
+        document.querySelector('#data-row' + i).appendChild(newName);
 
         let newDate = document.createElement('td');
         newDate.innerHTML = myArray[i].dueDate;
-        document.querySelector(newRow).appendChild(newDate);
+        document.querySelector('#data-row' + i).appendChild(newDate);
 
         let newPriority = document.createElement('td');
         newPriority.innerHTML = myArray[i].importance;
-        document.querySelector(newRow).appendChild(newPriority);
+        document.querySelector('#data-row' + i).appendChild(newPriority);
     }
 
 }
