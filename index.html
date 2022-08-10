@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link href="style.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +12,25 @@
     <h2 id="add-task-header">Add a Task...</h2>
 <div id="form-div">
     <form id="list-item-form">
-        <label for="task-name">Task Name: </label>
-        <input id="task-name" type="text" name="task-name" placeholder="Enter a task..."/> <br> <br>
-        <label for="due-date">Due Date: </label>
-        <input id="due-date" type="text" name="due-date" placeholder="yyyy-mm-dd"/> <br><br>
-    <label for = "priority-dropdown">Priority Level</label>
+        <div class="center">
+            <label for="task-name">Task Name: </label>
+            <input id="task-name" type="text" name="task-name" placeholder="Enter a task..."/>
+        </div><br>
+        <div class="center">
+            <label for="due-date">Due Date: </label>
+            <input id="due-date" type="text" name="due-date" placeholder="yyyy-mm-dd"/>
+        </div><br>
+        <div class="center">
+    <label for = "priority-dropdown">Priority Level: </label>
       <select id ="priority" name = "priority">
             <option value="3">Low</option>
              <option value="2">Medium</option>
              <option value="1">High</option>
        </select> 
-       <br><br>
-        <input id="submit-button" type="button" value="Submit" onclick="addTask()">
+    </div><br>
+    <div class="center">
+        <input class="btn-2" id="submit-button" type="button" value="Submit" onclick="addTask()">
+    </div>
     </form>
     
 </div>
