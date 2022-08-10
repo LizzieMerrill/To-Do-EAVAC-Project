@@ -50,17 +50,15 @@ function tableRefresh() {
 //Removes the line item clicked in the table
 function removeItem(e){
     for (i = 0; i < (e.currentTarget.children.length); i++) {
-        if (e.currentTarget.children[0].innerHTML == taskArray[i].name) {
+        if (e.currentTarget.children[0].innerHTML == taskArray[i].name.toString()) {
             if (e.currentTarget.children[1].innerHTML == taskArray[i].dueDate.toString()) {
-                if (e.currentTarget.children[2].innerHTML == taskArray[i].priority) {
+                if (e.currentTarget.children[2].innerHTML == taskArray[i].priority.toString()) {
                     taskArray.splice(i, i++);
-                    e.currentTarget.remove();
-                    break;
                 }
             }
         }
     }
-    
+    e.currentTarget.remove();
 }
 
 function addTask() {
