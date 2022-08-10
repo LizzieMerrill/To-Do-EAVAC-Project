@@ -27,6 +27,7 @@ function tableRefresh() {
     for (let i = 0; i < taskArray.length; i++) {
         let newRow = document.createElement('tr');
         newRow.id = ('data-row' + i);
+        newRow.class = ('table-data');
         document.querySelector('tbody').appendChild(newRow);
 
         let newName = document.createElement('td');
@@ -53,19 +54,17 @@ function addTask() {
     newObj(addName, addDate, addPriority);
     sortTasks(taskArray);
     tableRefresh();
+    fieldReset();
+
+
 }
 
+function fieldReset() {
+    document.querySelector('#task-name').value = 'Enter a task...';
+    document.querySelector('#due-date').value = 'yyyy-mm-dd';
+    document.querySelector('#priority').value = 3;
+}
 
-
-//JavaScript to add new list item to HTML file
-//let mainList = document.querySelector('ol');
-
-/*
-
-mainList.addEventListener('click', function removeItem(){
-        document.querySelector('.thingToDo').remove();
-    });
-*/
 //task list storage = array of tasks
 
 
