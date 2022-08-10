@@ -28,22 +28,32 @@ function tableRefresh() {
         let newRow = document.createElement('tr');
         newRow.id = ('data-row' + i);
         document.querySelector('tbody').appendChild(newRow);
-
+        // adds event handler to each new row
+        newRow.addEventListener('click', removeItem);
         let newName = document.createElement('td');
         newName.innerHTML = taskArray[i].name;
+        newName.class = ('table-data');
         document.querySelector('#data-row' + i).appendChild(newName);
 
         let newDate = document.createElement('td');
         newDate.innerHTML = taskArray[i].dueDate;
+        newDate.class = ('table-data');
         document.querySelector('#data-row' + i).appendChild(newDate);
 
+
         let newPriority = document.createElement('td');
+        newPriority.class = ('table-data');
         newPriority.innerHTML = taskArray[i].priority;
         document.querySelector('#data-row' + i).appendChild(newPriority);
     }
 
 }
 
+//Removes the line item clicked in the table
+function removeItem(e){
+    alert('clicked');
+    e.currentTarget.remove();
+}
 
 function addTask() {
     let addName = document.querySelector('#task-name').value;
@@ -55,18 +65,6 @@ function addTask() {
     tableRefresh();
 }
 
-
-
-//JavaScript to add new list item to HTML file
-//let mainList = document.querySelector('ol');
-
-/*
-
-mainList.addEventListener('click', function removeItem(){
-        document.querySelector('.thingToDo').remove();
-    });
-*/
-//task list storage = array of tasks
 
 
 function comparePriority(task1, task2) {
