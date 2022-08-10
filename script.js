@@ -20,7 +20,9 @@ function newObj(name_, dueDate_, priority_) {
 
 
 function tableRefresh() {       
-        //document.querySelector('tbody').empty();
+        document.querySelector('tbody').remove();
+        let refresh = document.createElement('tbody');
+        document.querySelector('table').appendChild(refresh);
 
     for (let i = 0; i < taskArray.length; i++) {
         let newRow = document.createElement('tr');
@@ -42,14 +44,15 @@ function tableRefresh() {
 
 }
 
+
 function addTask() {
     let addName = document.querySelector('#task-name').value;
     let addDate = document.querySelector('#due-date').value;
     let addPriority = document.querySelector('#priority').value;
     
     newObj(addName, addDate, addPriority);
+    sortTasks(taskArray);
     tableRefresh();
-
 }
 
 
