@@ -50,7 +50,17 @@ function tableRefresh() {
 //Removes the line item clicked in the table
 function removeItem(e){
     alert('clicked');
-    e.currentTarget.remove();
+
+    for (i = 0; i < (e.currentTarget.children.length); i++) {
+        if (e.currentTarget.children[0].innerHTML == taskArray[i].name) {
+            if (e.currentTarget.children[1].innerHTML == taskArray[i].dueDate.toString()) {
+                if (e.currentTarget.children[2].innerHTML == taskArray[i].priority) {
+                    taskArray.splice(i, i++);
+                }
+            }
+        }
+    }
+    e.currentTarget.remove(); 
 }
 
 function addTask() {
