@@ -2,43 +2,80 @@
 // array of task objects
 
 
-class task {//done by Vyvian
-
-
-    constructor(name, dueDate, priority, isComplete) {
+class task {
+    
+    constructor(name, dueDate, priority) { //dont pass isComplete
         this.name = name;   //task name, string
         this.dueDate = dueDate; //string 'yyyy-mm-dd'
-        this.priority = priority; //integer 1-3, 1 is highest importance
-        this.isComplete = isComplete; //boolean
+        this.priority = priority; //integer 1-3, 1 is highest priority
+        this.isComplete = false; //boolean; initializes as false and changes to true when user checks box
+        //should we remove isComplete property and set priority = 4 for completed tasks?
     }
+    
+}
+
+let taskArray = [];
+
+function newObj(namee, dueDatee, priorityy) {
+    if (namee != null && dueDatee != null && priorityy != null) {
+        taskArray.push(new task(namee,dueDatee,priorityy))
+    }
+    else
+    //text to html saying object not added bc missing input
+    console.log("Input invalid")
 }
 
 
-//task list storage = array of tasks
-let myArray = [];
-
-
-
-
-//JavaScript to add new list item to HTML file
-//let mainList = document.querySelector('ol');
-
-
-
-function addItem(){
-let newLI = document.createElement('li');
-newLI.innerHTML = prompt("Enter a new to-do list item: ");
-newLI.setAttribute('id', )
-newLI.setAttribute('class', "thingToDo");
-newLI.ad
-//let mainList = document.querySelector('ol');
-//mainList.appendChild(newLI);
-
+function comparePriority(task1, task2) {
+    if (task1.priority < task2.priority) {      //task1 higher priority
+        return -1;                              //task1 sorted before task2
+    }
+    if (task1.priority > task2.priority) {      //task1 lower priority
+        return 1;                               //task1 sorted after task2
+    }
+    return 0;                                   //same priority, keep original order
 }
 
-mainList.addEventListener('click', function removeItem(){
-        document.querySelector('.thingToDo').remove();
-    });
-=======
-//task list storage = array of tasks
->>>>>>> 32da99e3646d172651bf4f71cc054cfc18942d44
+function compareDueDate(task1, task2) {
+    if (task1.dueDate < task2.dueDate) {        //task1 due sooner
+        return -1;                              //task1 sorted before task2
+    }
+    if (task1.dueDate > task2.dueDate) {        //task1 due later
+        return 1;                               //task1 sorted after task2
+    }   
+    return 0;                                   //same due date, keep original order
+}
+
+function compareName(task1, task2) {
+    if (task1.name < task2.name) {              //task1 lexicographically before task2
+        return -1;                              //task1 sorted before task2
+    }
+    if (task1.dueDate > task2.dueDate) {        //task1 lexicographically before later
+        return 1;                               //task1 sorted after task2
+    }   
+    return 0;                                   //same name, keep original order
+}
+
+function sortTasks(taskArrayy) {
+    taskArrayy.sort(compareName);       //name is lowest level of sort order
+    taskArray.sort(compareDueDate);
+    taskArrayy.sort(comparePriority);   //priority is highest level of sort order
+}
+
+// test sortTasks function
+// let testArray = [
+//                     new task('Laundry LP', '2022-01-01', 3),
+//                     new task('Laundry LP', '2022-01-01', 2),
+//                     new task('Laundry LP', '2022-01-01', 1),
+//                     new task('Laundry LP', '2022-01-01', 3),
+//                     new task('Laundry LP', '2022-01-01', 3),
+//                     new task('Laundry LP', '2022-01-01', 1),
+//                     new task('Laundry LP', '2022-01-01', 2),
+//                 ];
+
+// sortTasks(testArray);
+// console.log(testArray);
+
+
+
+
