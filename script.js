@@ -4,18 +4,36 @@ class Task {
         this.dueDate = dueDate; //string 'yyyy-mm-dd'
         this.priority = priority; //integer 1-3, 1 is highest priority
         this.isComplete = false; //boolean initializes as false and changes to true when user checks box
-// list item storage structure
-// array of task objects
+    }
+
+    toString() {
+        return this.name + ',' + this.dueDate + ',' + this.priority;
     }
 }
 
 let taskArray = [];
 
 function newObj(name_, dueDate_, priority_) {
-    if (name_ != null && dueDate_ != null && priority_ != null) {
-        taskArray.push(new Task(name_,dueDate_,priority_));
+    let warning = document.querySelector('#warning')
+    if (name_ === '') {
+        warning.innerHTML = 'Enter a task name.';
+    } else {
+        
+        let newTask = new Task(name_, dueDate_, priority_)
+       
+        // user input matches a task in the array
+        for (let i=0; i<taskArray.length; i++) {
+            if (newTask.toString() === taskArray[i].toString()) {
+                warning.innerHTML = 'Task already in list.';
+                return;
+            }
+        }
+
+        warning.innerHTML = ''
+        taskArray.push(newTask);
+        // check whether all input fields match a task already in the array
     }
-    else console.log("Input invalid"); //text to html saying object not added bc missing input
+
 }
 
 
@@ -79,9 +97,6 @@ function fieldReset() {
     document.querySelector('#due-date').value = '';
     document.querySelector('#priority').value = 3;
 }
-
-
-//task list storage = array of tasks
 
 
 function comparePriority(task1, task2) {

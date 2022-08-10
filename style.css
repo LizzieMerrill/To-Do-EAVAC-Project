@@ -42,7 +42,7 @@ position: absolute;
   clear: left;
 }
 .rect3{
-  margin:;
+  margin: 0;
   width: 20vw;
   background: rgb(255, 3, 3);
   opacity: 0.5;
@@ -150,4 +150,10 @@ table {
 .center{
   text-align: center;
   margin: 0 auto;
+}
+
+#warning {
+  color: #b30707d0;
+  font-weight: normal;
+  font-size: 10pt;
 }
