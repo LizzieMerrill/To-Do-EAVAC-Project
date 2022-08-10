@@ -1,5 +1,77 @@
-h2 {
+body, html{
+  padding: 0;
+  margin: 0;
+  overflowX: hidden;
+  background: rgb(172, 161, 161);
+}
+.contact-container{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  overflow: hidden;
+  padding: 0;
+}
+.container{
+  padding: 0;
+  margin-top: 50vh;
+  background: linear-gradient(90deg,#650202d0,#720404cf 200%);
+  width: 100%;
+  height: 140vh;
+  transform: 
+ skewY(-12deg);
+position: absolute;
+  overflow-Y: hidden;
+  z-index: 1;
+}
 
+.rect1{
+  margin: 0;
+  width: 30vw;
+  background: rgb(255, 2, 2);
+  opacity: 0.3;
+  height: 5vh;
+  float: left;
+}
+.rect2{
+  margin: 0;
+  width: 20vw;
+  background: rgb(255, 0, 0);
+  opacity: 0.4;
+  height: 5vh;
+  float: left;
+  clear: left;
+}
+.rect3{
+  margin:;
+  width: 20vw;
+  background: rgb(255, 3, 3);
+  opacity: 0.5;
+  height: 5vh;
+  float: right;
+}
+.rect4{
+  margin: 0;
+  width: 30vw;
+  background: rgb(241, 1, 1);
+  opacity: 0.3;
+  height: 5vh;
+  float: right;
+  clear: right;
+}
+.content-container{
+ margin: 50vh 10vw;
+  position: absolute;
+  z-index: 20;
+}
+form{
+  background: rgb(172, 161, 161);
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  text-align: center;
 }
 
 th {
@@ -34,6 +106,6 @@ td {
 
 }
 
-#submit-button {
+#submit-button, #submit-button {
 
-}
+  }
