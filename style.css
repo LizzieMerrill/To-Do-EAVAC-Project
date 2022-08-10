@@ -63,49 +63,91 @@ position: absolute;
   position: absolute;
   z-index: 20;
 }
+
 form{
   background: rgb(172, 161, 161);
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  font-family:inherit;
+  font-weight: bold;
 }
 
 h2 {
-  margin: 0;
-  padding: 0;
+  margin: 5px;
+  padding: 5px;
   padding-top: 10px;
   text-align: center;
+  font-family:'Courier New', Courier, monospace;
+  font-size:xx-large;
 }
 
 th {
-
+  
 }
 
 td {
-    
+
+}
+
+.btn-2 {
+  background: #650202d0;
+  background: linear-gradient(0deg, #b30707d0 0%, #db2828cf 100%);
+  border: none;  
+}
+.btn-2:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-2:hover {
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+
+tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
 }
 
 #add-task-header, #task-list-header {
 
 }
 
-#task-table-div {
+table {
+  
+}
 
+#task-table-div {
+  display:flex;
+  justify-content: center;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #task-table {
 
 }
 
-#row1 {
-
+#list-item-row {
+ 
 }
 
 #form-div {
-
+  width: 100%;
+  display: relative;
+  
 }
 
 #task-name, #priority, #due-date {
 
 }
 
-#submit-button, #submit-button {
+#submit-button {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
-  }
+.center{
+  text-align: center;
+  margin: 0 auto;
+}

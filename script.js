@@ -27,9 +27,10 @@ function tableRefresh() {
     for (let i = 0; i < taskArray.length; i++) {
         let newRow = document.createElement('tr');
         newRow.id = ('data-row' + i);
-        newRow.class = ('table-data');
+        newRow.addEventListener('click', removeItem);  // adds event handler to each new row
         document.querySelector('tbody').appendChild(newRow);
 
+    
         let newName = document.createElement('td');
         newName.innerHTML = taskArray[i].name;
         document.querySelector('#data-row' + i).appendChild(newName);
@@ -38,6 +39,7 @@ function tableRefresh() {
         newDate.innerHTML = taskArray[i].dueDate;
         document.querySelector('#data-row' + i).appendChild(newDate);
 
+
         let newPriority = document.createElement('td');
         newPriority.innerHTML = taskArray[i].priority;
         document.querySelector('#data-row' + i).appendChild(newPriority);
@@ -45,6 +47,11 @@ function tableRefresh() {
 
 }
 
+//Removes the line item clicked in the table
+function removeItem(e){
+    alert('clicked');
+    e.currentTarget.remove();
+}
 
 function addTask() {
     let addName = document.querySelector('#task-name').value;
@@ -64,6 +71,7 @@ function fieldReset() {
     document.querySelector('#due-date').value = '';
     document.querySelector('#priority').value = 3;
 }
+
 
 //task list storage = array of tasks
 
