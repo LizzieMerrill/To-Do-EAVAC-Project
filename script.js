@@ -3,7 +3,7 @@ class Task {
         this.name = name;   //task name, string
         this.dueDate = dueDate; //string 'yyyy-mm-dd'
         this.priority = priority; //integer 1-3, 1 is highest priority
-        this.isComplete = false; //boolean initializes as false and changes to true when user checks box
+        //this.isComplete = false; //boolean initializes as false and changes to true when user checks box
     }
 
     toString() {
@@ -60,6 +60,7 @@ function tableRefresh() {
 
         let newPriority = document.createElement('td');
         newPriority.innerHTML = taskArray[i].priority;
+
         document.querySelector('#data-row' + i).appendChild(newPriority);
     }
 
@@ -67,16 +68,26 @@ function tableRefresh() {
 
 //Removes the line item clicked in the table
 function removeItem(e){
-    for (i = 0; i < (e.currentTarget.children.length); i++) {
-        if (e.currentTarget.children[0].innerHTML == taskArray[i].name.toString()) {
-            if (e.currentTarget.children[1].innerHTML == taskArray[i].dueDate.toString()) {
-                if (e.currentTarget.children[2].innerHTML == taskArray[i].priority.toString()) {
-                    taskArray.splice(i, i++);
-                }
+
+    //iterate through tasks
+    for (let i = 0; i < taskArray.length; i++) {
+
+        //get a string for target row to compare to each task in taskArray
+        let rowTaskString = '';
+        for (let j=0; j<3; j++) {
+            if (j<2) {
+                rowTaskString += e.currentTarget.children[j].innerHTML + ',';
+            } else {
+                rowTaskString += e.currentTarget.children[j].innerHTML;
             }
         }
+        console.log(rowTaskString + ' ; ' + taskArray[i].toString());
+        if (rowTaskString === taskArray[i].toString()) {
+            taskArray.splice(i, 1);
+            e.currentTarget.remove();
+        }
     }
-    e.currentTarget.remove();
+    console.log(taskArray);
 }
 
 function addTask() {
@@ -88,8 +99,6 @@ function addTask() {
     sortTasks(taskArray);
     tableRefresh();
     fieldReset();
-
-
 }
 
 function fieldReset() {
