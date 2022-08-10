@@ -54,12 +54,13 @@ function removeItem(e){
             if (e.currentTarget.children[1].innerHTML == taskArray[i].dueDate.toString()) {
                 if (e.currentTarget.children[2].innerHTML == taskArray[i].priority) {
                     taskArray.splice(i, i++);
+                    e.currentTarget.remove();
                     break;
                 }
             }
         }
     }
-    e.currentTarget.remove(); 
+    
 }
 
 function addTask() {
