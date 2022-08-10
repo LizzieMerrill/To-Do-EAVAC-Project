@@ -60,8 +60,8 @@ function addTask() {
 }
 
 function fieldReset() {
-    document.querySelector('#task-name').value = 'Enter a task...';
-    document.querySelector('#due-date').value = 'yyyy-mm-dd';
+    document.querySelector('#task-name').value = '';
+    document.querySelector('#due-date').value = '';
     document.querySelector('#priority').value = 3;
 }
 
