@@ -1,9 +1,8 @@
 class Task {
-    constructor(name, dueDate, priority) { //dont pass isComplete
+    constructor(name, dueDate, priority) {
         this.name = name;   //task name, string
         this.dueDate = dueDate; //string 'yyyy-mm-dd'
         this.priority = priority; //integer 1-3, 1 is highest priority
-        this.isComplete = false; //boolean initializes as false and changes to true when user checks box
 // list item storage structure
 // array of task objects
     }
@@ -12,10 +11,10 @@ class Task {
 let taskArray = [];
 
 function newObj(name_, dueDate_, priority_) {
-    if (name_ != null && dueDate_ != null && priority_ != null) {
+    if (name_ != "" && dueDate_ != "") { //the "" in the feilds prevent empty entries
         taskArray.push(new Task(name_,dueDate_,priority_));
     }
-    else console.log("Input invalid"); //text to html saying object not added bc missing input
+    else alert("Input invalid: please re-enter"); //text to html saying object not added bc missing input
 }
 
 
@@ -43,34 +42,74 @@ function tableRefresh() {
         let newPriority = document.createElement('td');
         newPriority.innerHTML = taskArray[i].priority;
         document.querySelector('#data-row' + i).appendChild(newPriority);
+
+        console.log(taskArray[i]);
     }
 
 }
 
 //Removes the line item clicked in the table
 function removeItem(e){
-    for (i = 0; i < (e.currentTarget.children.length); i++) {
-        if (e.currentTarget.children[0].innerHTML == taskArray[i].name.toString()) {
-            if (e.currentTarget.children[1].innerHTML == taskArray[i].dueDate.toString()) {
-                if (e.currentTarget.children[2].innerHTML == taskArray[i].priority.toString()) {
+    if (taskArray.length < 2) {
+        taskArray.pop();
+    } else {
+        for (let i = 0; i < (taskArray.length); i++) {
+            if (e.currentTarget.children[0].innerHTML == taskArray[i].name.toString()) {
+                if (e.currentTarget.children[1].innerHTML == taskArray[i].dueDate.toString()) {
+                    if (e.currentTarget.children[2].innerHTML == taskArray[i].priority.toString()) {
                     taskArray.splice(i, i++);
+                    }
                 }
             }
         }
     }
     e.currentTarget.remove();
+    console.log(taskArray);
 }
+
+//e.currentTarget.children.length error testing wasnt working so we changed this to taskArray.length
 
 function addTask() {
     let addName = document.querySelector('#task-name').value;
     let addDate = document.querySelector('#due-date').value;
     let addPriority = document.querySelector('#priority').value;
-    
+    let isDuplicate;
+
+    isDuplicate = duplicate(addName, addDate, addPriority);
+    if(isDuplicate == false){
     newObj(addName, addDate, addPriority);
     sortTasks(taskArray);
     tableRefresh();
     fieldReset();
+    }
+    fieldReset();
 
+}
+
+function duplicate(addName, addDate, addPriority) {
+    if (taskArray.length == 0) {
+        return false;
+    }
+
+
+    if (taskArray.length < 2) {
+        if(addName == taskArray[0].name.toString() && addDate == taskArray[0].dueDate.toString() && addPriority == taskArray[0].priority) {
+            alert("This task already exists! Please enter a new one:");
+            return true;
+        }
+    } else {
+        for (let i = 0; i < (taskArray.length); i++) {
+            if (addName == taskArray[i].name.toString()) {
+                if (addDate == taskArray[i].dueDate.toString()) {
+                    if (addPriority == taskArray[i].priority.toString()) {
+                        alert("This task already exists! Please enter a new one:");
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    return false;
 
 }
 
