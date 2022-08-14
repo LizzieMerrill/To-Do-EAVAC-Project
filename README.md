@@ -16,7 +16,6 @@ To-Do list will capture four elements of the task in an object:
     1. Task Name
     2. Task Due date
     3. Task importance (low, medium, high)
-    4. Task completed?
 
 There will be an input form or prompt that allows the user to add each of these attributes
 The task list will order the tasks based on the importance
