@@ -1,7 +1,7 @@
 body, html{
   padding: 0;
   margin: 0;
-  overflowX: hidden;
+  overflow-x: hidden;
   background: rgb(172, 161, 161);
 }
 .contact-container{
@@ -81,13 +81,6 @@ h2 {
   font-size:xx-large;
 }
 
-th {
-  
-}
-
-td {
-
-}
 
 .btn-2 {
   background: #650202d0;
@@ -111,13 +104,6 @@ tr {
   gap: 30px;
 }
 
-#add-task-header, #task-list-header {
-
-}
-
-table {
-  
-}
 
 #task-table-div {
   display:flex;
@@ -125,13 +111,6 @@ table {
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-#task-table {
-
-}
-
-#list-item-row {
- 
-}
 
 #form-div {
   width: 100%;
@@ -139,9 +118,6 @@ table {
   
 }
 
-#task-name, #priority, #due-date {
-
-}
 
 #submit-button {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

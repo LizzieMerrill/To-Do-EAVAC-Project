@@ -33,6 +33,7 @@ function newObj(name_, dueDate_, priority_) {
         taskArray.push(newTask);
         // check whether all input fields match a task already in the array
     }
+    
 
 }
 
@@ -99,6 +100,7 @@ function addTask() {
     sortTasks(taskArray);
     tableRefresh();
     fieldReset();
+    console.log(taskArray);
 }
 
 function fieldReset() {
